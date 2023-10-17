@@ -1,6 +1,5 @@
-- name: creating catalogue server
+- name: creating services
   hosts: all
   become: yes
-  tasks:
-    - ansible.builtin.import_role:
-        name: catalogue
+  roles:
+    - "{{ role_name}}"
