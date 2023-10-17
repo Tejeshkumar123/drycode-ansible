@@ -1,0 +1,30 @@
+- name: Installing python Server
+  ansible.builtin.yum:
+    name:
+      - python36
+      - gcc
+      - python3-devel
+    state: latest
+
+- name: Configuring app_start
+  ansible.builtin.include_tasks:
+    file: app_start.yml
+
+- name: Installing Dependencies
+  ansible.builtin.shell: pip3.6 install -r requirements.txt
+  args:
+    chdir: /app
+
+
+- name: Configuring payment service
+  ansible.builtin.copy:
+    src: "{{payment}}.service"
+    dest: /etc/systemd/system/{{payment}}.service
+
+- name: Enabling and starting the payment service
+  ansible.builtin.service:
+    name: payment
+    state: restarted
+    enabled: yes
+
+
