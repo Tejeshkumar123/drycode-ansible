@@ -6,7 +6,7 @@
     name: nodejs
     state: latest
 
-- name: Include task list in play
+- name: configuring app_start
   ansible.builtin.import_tasks:
       file: app_prestartup.yml
 
@@ -16,7 +16,7 @@
     chdir: /app
 
 
-- name: Include task list in play
+- name: configuring service_start
   ansible.builtin.import_tasks:
     file: service_start.yml
 
