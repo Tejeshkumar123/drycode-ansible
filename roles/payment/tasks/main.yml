@@ -1,6 +1,6 @@
 - name: Configuring python server
   ansible.builtin.include_role:
     name: common
-    tasks_from: python
+    tasks_from: python.yml
 
 
