@@ -18,8 +18,8 @@
 
 - name: Configuring payment service
   ansible.builtin.copy:
-    src: "{{ payment }}.service"
-    dest: /etc/systemd/system/{{ payment }}.service
+    src: "{{ component }}.service"
+    dest: /etc/systemd/system/{{ component }}.service
 
 - name: Enabling and starting the payment service
   ansible.builtin.service:
