@@ -1,0 +1,9 @@
+- name: configuring nodejs server
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: nodejs.yml
+
+- name: configuring mongo_schema
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: mongo_schema.yml
