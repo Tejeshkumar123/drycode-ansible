@@ -1,7 +1,7 @@
 - name: copy MONGODB REPO
   ansible.builtin.copy:
     src: mongodb.repo
-    dest: /etc/yum.repos.d/mongodb.repo
+    dest: /etc/yum.repos.d/{{ component }}.repo
 
 - name: Installing mongodb_schema
   ansible.builtin.yum:
@@ -9,5 +9,5 @@
     state: latest
 
 - name: Loading Mongo Schema
-  ansible.builtin.shell: mongo --host mongodb-dev.sindhu.cloud </app/schema/catalogue.js
+  ansible.builtin.shell: mongo --host mongodb-dev.sindhu.cloud </app/schema/{{ component }}.js
 
