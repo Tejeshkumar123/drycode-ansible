@@ -1,0 +1,8 @@
+- name: Installing mysql schema
+  ansible.builtin.yum:
+    name: mysql
+    state: latest
+
+- name: Loading mysql Schema
+  ansible.builtin.shell: mysql -h mysql-dev.sindhu.cloud -uroot -pRoboShop@1 </app/schema/shipping.sql
+

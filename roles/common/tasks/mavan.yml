@@ -1,0 +1,26 @@
+- name: Installing maven Service
+  ansible.builtin.yum:
+    name: maven
+    state: latest
+
+- name: configuring app_prestartup
+  ansible.builtin.import_tasks:
+    file: app_prestartup.yml
+
+- name: Installing mvn clean package
+  ansible.builtin.shell: mvn clean package
+  args:
+    chdir: /app
+
+- name: building application to shipping
+  ansible.builtin.shell: mv target/shipping-1.0.jar shipping.jar
+  args:
+    chdir: /app
+
+- name: service start and enableing
+  ansible.builtin.import_tasks:
+          file: service_start.yml
+
+
+
+
