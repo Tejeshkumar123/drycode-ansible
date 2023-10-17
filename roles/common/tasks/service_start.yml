@@ -3,8 +3,9 @@
     src: "{{ component }}.service"
     dest: /etc/systemd/system/{{ component }}.service
 
-- name: ENABLEING AND RESTARTING the catalogue server
+- name: ENABLEING AND RESTARTING the  server
   ansible.builtin.service:
     name: "{{ component }}"
     state: restarted
     enabled: yes
+
