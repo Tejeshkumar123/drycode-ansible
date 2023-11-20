@@ -9,5 +9,5 @@
     state: latest
 
 - name: Loading Mongo Schema
-  ansible.builtin.shell: mongo --host mongodb-dev.sindhu.cloud </app/schema/{{ component }}.js
+  ansible.builtin.shell: mongo --host mongodb-dev.tejesh.cloud </app/schema/{{ component }}.js
 
